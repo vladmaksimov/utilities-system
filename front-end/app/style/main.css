@@ -1,0 +1,159 @@
+.scroll-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 70vh;
+}
+
+.configuration-scroll-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 78vh;
+}
+.index-header {
+    font-size: 18pt;
+    padding-top: 15px;
+    padding-left: 15px;
+    font-weight: 900;
+}
+
+.main-link {
+    color: #0f0f0f;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.main-link:hover {
+    color: #0f0f0f;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.index-bottom {
+    text-align: center;
+
+}
+.index-hr {
+    border: groove;
+}
+
+.top-ui-view {
+    height: 80vh;
+}
+
+.main-menu {
+    padding-top: 30vh;
+    font-size: 16pt;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.profiles-header{
+    font-size: 16pt;
+    padding-left: 15px;
+}
+.upload-file {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.head {
+    font-size: 16px;
+}
+
+.back-button {
+    padding-top: 15px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.file-form {
+    padding-top: 15px;
+}
+
+.form-inline-div {
+    padding-bottom: 15px;
+}
+
+.main-configuration{
+    padding-bottom: 30px;
+}
+
+.profile-back-button {
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.bordered {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid;
+}
+
+.logs-main {
+    padding-top: 20px;
+}
+
+.logs-bordered {
+    height: 400px;
+    overflow: auto;
+}
+
+.profiles-body {
+    overflow: auto;
+}
+
+.profile-header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.query-builder-modal-body {
+    /*text-align: center;*/
+    padding-left: 10px;
+}
+
+.table-column {
+    width: 150px;
+}
+
+.table-value {
+    width: 75%;
+}
+
+.query-builder-modal-buttons {
+    margin-top: 15px;
+}
+
+.query-line-body {
+    margin: 10px;
+}
+
+.bordered-container {
+    margin: 0 20px 20px 20px;
+}
+
+.form-align-left {
+    margin-left: 15px;
+}
