@@ -4,6 +4,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.beans.Transient;
 import java.util.Collections;
 import java.util.Set;
@@ -13,6 +15,8 @@ import java.util.stream.Collectors;
  * Created on 20.03.2016.
  */
 
+@Entity
+@Table
 public class User extends Base implements UserDetails {
 
     private String username;

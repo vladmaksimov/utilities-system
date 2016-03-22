@@ -21,6 +21,7 @@ public class InitializationConfiguration implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(WebConfiguration.class);
         ctx.register(SecurityConfiguration.class);
+        ctx.register(JpaConfiguration.class);
         servletContext.addListener(new ContextLoaderListener(ctx));
 
         ctx.setServletContext(servletContext);
