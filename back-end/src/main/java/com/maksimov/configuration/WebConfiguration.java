@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.maksimov")
+@ComponentScan("com.maksimov")
 public class WebConfiguration {
 
     @Bean

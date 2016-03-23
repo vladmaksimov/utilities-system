@@ -1,5 +1,7 @@
 package com.maksimov.controller;
 
+import com.maksimov.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,9 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "api/")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "me")
     @ResponseBody
-    public void me(){
+//    @Secured("IS_AUTHENTICATED_FULLY")
+    public void me() {
+        userService.loadUserByUsername("admin");
         System.out.printf("test");
     }
 

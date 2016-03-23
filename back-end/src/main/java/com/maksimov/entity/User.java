@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.beans.Transient;
 import java.util.Collections;
 import java.util.Set;
@@ -13,7 +14,11 @@ import java.util.stream.Collectors;
  * Created on 20.03.2016.
  */
 
-public class User extends Base implements UserDetails {
+@Entity
+public class User implements UserDetails {
+
+    @Id
+    private Long id;
 
     private String username;
 
@@ -28,9 +33,17 @@ public class User extends Base implements UserDetails {
     private boolean credentialsNonExpired;
 
 
-//    @ManyToMany
-//    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = null;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
