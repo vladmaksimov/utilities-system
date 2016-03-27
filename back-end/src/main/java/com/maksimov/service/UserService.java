@@ -20,4 +20,7 @@ public class UserService implements UserDetailsService {
         return userPersistence.getByUsername(username);
     }
 
+    public void setUserPersistence(UserPersistence userPersistence) {
+        this.userPersistence = userPersistence;
+    }
 }
