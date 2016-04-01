@@ -26,10 +26,13 @@ public class User implements UserDetails {
 
     private boolean enabled = true;
 
+    @Column(name = "account_non_expired")
     private boolean accountNonExpired;
 
+    @Column(name = "account_non_locked")
     private boolean accountNonLocked;
 
+    @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
 
 
