@@ -15,11 +15,15 @@
     <spring.data>1.9.2.RELEASE</spring.data>
     <mysql.version>5.1.38</mysql.version>
     <hibernate.manager>5.1.0.Final</hibernate.manager>
-    <logger.log4j>2.3</logger.log4j>
-    <logger.stfl>1.7.12</logger.stfl>
+    <jackson.mapper>1.9.13</jackson.mapper>
+    <jackson.data>2.5.0</jackson.data>
+    <google.common>18.0</google.common>
+    <logger.slf4j>1.7.18</logger.slf4j>
   </properties>
 
   <dependencies>
+
+    <!--Spring MVC-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
@@ -45,6 +49,8 @@
       <version>${jstl.version}</version>
     </dependency>
 
+    <!--Security part-->
+
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
@@ -69,6 +75,8 @@
       <version>${spring.securiry}</version>
     </dependency>
 
+    <!--DB support-->
+
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -87,22 +95,26 @@
       <version>${hibernate.manager}</version>
     </dependency>
 
+    <!--json REST support-->
+
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.13</version>
+      <version>${jackson.mapper}</version>
     </dependency>
 
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.5.0</version>
+      <version>${jackson.data}</version>
     </dependency>
+
+    <!--Google common-->
 
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>18.0</version>
+      <version>${google.common}</version>
     </dependency>
 
     <!--logging-->
@@ -110,13 +122,13 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.18</version>
+      <version>${logger.slf4j}</version>
     </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.18</version>
+      <version>${logger.slf4j}</version>
     </dependency>
 
   </dependencies>
