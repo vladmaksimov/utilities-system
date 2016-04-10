@@ -58,8 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage()))
                 .and().authorizeRequests().antMatchers("/index.html", "/", "/api/**", "/css/**", "/js/**", "/image/**", "/img/**", "/templates/**", "/stomp/**").permitAll()
                 .anyRequest().authenticated()
-                .and().csrf().csrfTokenRepository(csrfTokenRepository()).ignoringAntMatchers("/stomp/**")
-                .and().addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
+//                .and().csrf().csrfTokenRepository(csrfTokenRepository()).ignoringAntMatchers("/stomp/**")
+                .and()/*.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)*/
                 .logout().logoutUrl("/api/me/logout").invalidateHttpSession(true).logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
     }
 

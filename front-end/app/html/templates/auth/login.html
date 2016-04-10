@@ -1,0 +1,12 @@
+<div class="container">
+    <form ng-submit="vm.authenticate(vm.credentials)">
+        <input class="form-control" type="text" placeholder="login" ng-model="vm.credentials.username">
+        <input class="form-control" type="password" placeholder="password" ng-model="vm.credentials.password">
+        <button class="btn btn-success" type="submit">Login</button>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="vm.credentials.rememberMe"> Remember me
+            </label>
+        </div>
+    </form>
+</div>
