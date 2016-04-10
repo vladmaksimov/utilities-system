@@ -15,10 +15,7 @@ import java.util.stream.Collectors;
  */
 
 @Entity
-public class User implements UserDetails {
-
-    @Id
-    private Long id;
+public class User extends Base implements UserDetails{
 
     private String username;
 
@@ -26,24 +23,19 @@ public class User implements UserDetails {
 
     private boolean enabled = true;
 
+    @Column(name = "account_non_expired")
     private boolean accountNonExpired;
 
+    @Column(name = "account_non_locked")
     private boolean accountNonLocked;
 
+    @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
 
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = null;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

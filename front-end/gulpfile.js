@@ -40,8 +40,8 @@ gulp.task('connect', function () {
     var url = require('url');
     var proxy = require('http-proxy-middleware');
 
-    var proxyObject = proxy(['/jobs/**', '/batch-server/api/**'], {
-        target: 'http://localhost:8085',
+    var proxyObject = proxy(['/api/**'], {
+        target: 'http://localhost:8080',
         changeOrigin: true
     });
 
