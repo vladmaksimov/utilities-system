@@ -21,6 +21,10 @@ public class User extends Base implements UserDetails{
 
     private String password;
 
+    private String firstName;
+
+    private String lastName;
+
     private boolean enabled = true;
 
     @Column(name = "account_non_expired")
@@ -109,6 +113,21 @@ public class User extends Base implements UserDetails{
         this.roles = roles;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     @Transient
     public Set<GrantedAuthority> getAuthorities() {

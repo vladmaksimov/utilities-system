@@ -1,4 +1,4 @@
-package com.maksimov.controller;
+package com.maksimov.web.controller;
 
 import com.maksimov.exceptions.NoUniqueException;
 import org.springframework.http.HttpStatus;

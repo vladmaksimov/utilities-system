@@ -1,7 +1,7 @@
-package com.maksimov.controller;
+package com.maksimov.web.controller;
 
-import com.maksimov.entity.User;
-import com.maksimov.service.UserService;
+import com.maksimov.web.entity.UserView;
+import com.maksimov.web.service.ViewUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
@@ -24,12 +24,12 @@ import java.security.Principal;
 public class MyAccountController {
 
     @Autowired
-    private UserService userService;
+    private ViewUserService userService;
 
     @RequestMapping("")
     @Secured("IS_AUTHENTICATED_FULLY")
-    public User me(Principal principal) {
-        return (User) userService.loadUserByUsername(principal.getName());
+    public UserView me(Principal principal) {
+        return userService.getUserByUsername(principal.getName());
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

@@ -1,4 +1,4 @@
-package com.maksimov.controller;
+package com.maksimov.web.controller;
 
 import com.maksimov.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
