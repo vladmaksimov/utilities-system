@@ -5,9 +5,13 @@ import com.maksimov.entity.house.GasConfig;
 import com.maksimov.entity.house.WasteWaterConfig;
 import com.maksimov.entity.house.WaterSupplyConfig;
 
+import javax.persistence.Entity;
+
 /**
  * Created on 11.04.2016.
  */
+
+@Entity
 public class HouseConfig extends Base {
 
     private WaterSupplyConfig waterSupplyConfig;
