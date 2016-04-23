@@ -1,6 +1,6 @@
 package com.maksimov.web.controller;
 
-import com.maksimov.service.UserService;
+import com.maksimov.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,12 +18,12 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
     @RequestMapping("/get")
     @Secured("IS_AUTHENTICATED_FULLY")
     public UserDetails getUser() {
-        return userService.getCurrentUser();
+        return userServiceImpl.getCurrentUser();
     }
 
     @RequestMapping("/registration")

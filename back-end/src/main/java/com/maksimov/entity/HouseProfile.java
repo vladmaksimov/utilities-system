@@ -12,7 +12,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class HouseConfig extends Base {
+public class HouseProfile extends Base {
 
     private WaterSupplyConfig waterSupplyConfig;
     private WasteWaterConfig wasteWaterConfig;

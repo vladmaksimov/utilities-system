@@ -1,6 +1,6 @@
 package com.maksimov.configuration;
 
-import com.maksimov.service.UserService;
+import com.maksimov.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
-import org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy;
-import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -40,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
-    private UserService userDetailsService;
+    private UserServiceImpl userDetailsService;
 
     @Autowired(required = false)
     private PasswordEncoder passwordEncoder = NoOpPasswordEncoder.getInstance();

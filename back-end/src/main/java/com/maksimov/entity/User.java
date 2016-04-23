@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.beans.Transient;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
  */
 
 @Entity
-public class User extends Base implements UserDetails{
+public class User extends Base implements UserDetails {
 
     private String username;
 
@@ -36,6 +37,8 @@ public class User extends Base implements UserDetails{
     @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
 
+    @ManyToOne
+    private List<HouseProfile> profiles;
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -103,6 +106,14 @@ public class User extends Base implements UserDetails{
 
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public List<HouseProfile> getProfiles() {
+        return profiles;
+    }
+
+    public void setProfiles(List<HouseProfile> profiles) {
+        this.profiles = profiles;
     }
 
     public Set<Role> getRoles() {
