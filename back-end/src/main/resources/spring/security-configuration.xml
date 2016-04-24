@@ -11,20 +11,21 @@
     <beans:import resource="context.xml"/>
 
     <http auto-config="true">
-        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/**" access="permitAll" />
         <intercept-url pattern="/api**" access="ROLE_USER" />
+        <http-basic />
     </http>
 
     <authentication-manager>
-        <authentication-provider>
-        <jdbc-user-service data-source-ref="dataSource"/>
-        </authentication-provider>
+        <!--<authentication-provider>-->
+            <!--<jdbc-user-service data-source-ref="dataSource"/>-->
+        <!--</authentication-provider>-->
+        <authentication-provider user-service-ref="detailService"/>
     </authentication-manager>
 
     <beans:bean id="detailService" class="com.maksimov.service.UserService" />
 
     <!--persistence beans-->
     <context:annotation-config />
-    <context:component-scan base-package="com.maksimov" />
 
 </beans:beans>

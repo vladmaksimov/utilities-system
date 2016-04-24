@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="${db.entitymanager.packages.to.scan}"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
-        </property>
-        <property name="jpaProperties">
-            <props>
-                <prop key="hibernate.hbm2ddl.auto">${db.hibernate.hbm2ddl.auto}</prop>
-                <prop key="hibernate.dialect">${db.hibernate.dialect}</prop>
-            </props>
-        </property>
-    </bean>
+    <!--<repositories base-package="com.maksimov.persistence" />-->
+    <tx:annotation-driven />
 
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
+    <beans:bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <beans:property name="locations" value="classpath:application.properties"/>
+    </beans:bean>
 
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <beans:property name="dataSource" ref="dataSource"/>
+        <beans:property name="packagesToScan" value="${db.entitymanager.packages.to.scan}"/>
+        <beans:property name="jpaProperties">
+            <beans:props>
+                <beans:prop key="hibernate.hbm2ddl.auto">${db.jpa.hbm2ddl.auto}</beans:prop>
+                <beans:prop key="hibernate.dialect">${db.jpa.dialect}</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
 
-    <tx:annotation-driven/>
-    <context:component-scan base-package="com.maksimov.persistence"/>
+    <beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </beans:bean>
 
-</beans>
+    <beans:bean id="persistenceExceptionTranslationPostProcessor"
+          class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+</beans:beans>

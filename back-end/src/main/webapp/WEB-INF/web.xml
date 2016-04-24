@@ -14,7 +14,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:spring/security-configuration.xml</param-value>
+            <param-value>classpath*:spring/context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -26,7 +26,11 @@
     <!-- Loads Spring Security config file -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:spring/security-configuration.xml</param-value>
+        <param-value>
+            classpath:spring/security-configuration.xml,
+            classpath:spring/jpa-configuration.xml,
+            classpath:spring/context.xml
+        </param-value>
     </context-param>
 
     <filter>
