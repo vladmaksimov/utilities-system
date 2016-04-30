@@ -37,8 +37,8 @@ public class User extends Base implements UserDetails {
     @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
 
-    @ManyToOne
-    private List<HouseProfile> profiles;
+//    @ManyToOne
+//    private List<HouseProfile> profiles;
 
     @ManyToMany
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -108,13 +108,13 @@ public class User extends Base implements UserDetails {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
-    public List<HouseProfile> getProfiles() {
-        return profiles;
-    }
-
-    public void setProfiles(List<HouseProfile> profiles) {
-        this.profiles = profiles;
-    }
+//    public List<HouseProfile> getProfiles() {
+//        return profiles;
+//    }
+//
+//    public void setProfiles(List<HouseProfile> profiles) {
+//        this.profiles = profiles;
+//    }
 
     public Set<Role> getRoles() {
         return roles;

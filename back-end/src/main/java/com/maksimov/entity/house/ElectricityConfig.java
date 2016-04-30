@@ -8,7 +8,6 @@ import javax.persistence.Entity;
  * Created on 11.04.2016.
  */
 
-@Entity
 public class ElectricityConfig extends Base {
 
     private int upToHundred;

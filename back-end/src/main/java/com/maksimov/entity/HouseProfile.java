@@ -11,7 +11,6 @@ import javax.persistence.Entity;
  * Created on 11.04.2016.
  */
 
-@Entity
 public class HouseProfile extends Base {
 
     private WaterSupplyConfig waterSupplyConfig;
